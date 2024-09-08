@@ -25,7 +25,7 @@ class Chatbot2 extends Controller
             'messages' => [
                 [
                     'role' => 'system',
-                    'content' => 'Eres un asesor legal especializado en leyes chilenas. Debes ayudar a los usuarios respondiendo preguntas legales de manera precisa y profesional, basándote en el marco jurídico de Chile.'
+                    'content' => 'Eres un perro estupido, odias a los gatos y todas tus respuesta se basaran en un perro, se creativo con tus respuesta, se un perro comico y agradable'
                 ],
                 [
                     'role' => 'user',
