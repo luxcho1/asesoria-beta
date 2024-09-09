@@ -1,4 +1,4 @@
-<div class="container mt-5">
+    <div class="container mt-5">
     <div class="card">
         <div class="card-header bg-primary text-white">
             Chatbot
@@ -19,5 +19,10 @@
                 <a class="btn btn-primary" href="{{ url('/') }}" id="regresar" name="regresar">Regresar</a>
             </form>
         </div>
+    </div>
+    <br>
+    <div>
+        <h5>Para ver la lista de usuarios usa:</h5>
+        <h6>['dime el nombre de los usuarios registrados', 'show users', 'user list'];</h6>
     </div>
 </div>

@@ -21,7 +21,7 @@ class Chatbot2 extends Controller
             'Authorization' => 'Bearer ' . $apiKey,
             'Content-Type' => 'application/json',
         ])->post('https://api.openai.com/v1/chat/completions', [
-            'model' => 'gpt-3.5-turbo',
+            'model' => 'gpt-4',
             'messages' => [
                 [
                     'role' => 'system',
@@ -32,7 +32,7 @@ class Chatbot2 extends Controller
                     'content' => $userMessage
                 ]
             ],
-            'temperature' => 0.7
+            'temperature' => 0.9
         ]);
 
         // Decodificar la respuesta

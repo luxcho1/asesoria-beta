@@ -19,14 +19,16 @@
     @if (class_exists(\Livewire\Livewire::class))
         @livewireStyles
     @endif
+    <link rel="icon" href="{{ asset('images/favicon.svg') }}" type="image/x-icon">
+
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+                <div style="max-width: 200px; overflow: hidden;">
+                    <img src="{{ asset('images/logo_pagina_web.svg') }}" alt="Logo" style="width: 100%; height: auto;">
+                  </div>
 
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ ('Inicio') }}
