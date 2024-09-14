@@ -41,7 +41,7 @@ Hay dos formas de realizarlo, la primera descargar el zip y pegarlo en la siguie
 
 Y la segunda en esta ruta `C:\laragon\www` abrir el cmd y escribir: 
 ```bash
-  git clone https://github.com/luxcho1/asesor-ia-legal.git
+  git clone https://github.com/luxcho1/asesoria-beta.git
 ```
 
 ## Configurar proyecto y base de datos
