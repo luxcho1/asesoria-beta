@@ -92,12 +92,18 @@ Una vez creada la conexion con la base de datos ejecutamos el siguiente comando:
   php artisan migrate:fresh --seed
 ```
 ## Ejecutar
-Solo la primera vez ejecutar:
+
+Para que los cambios sean visibles, asegúrate de que Vite esté corriendo. En tu terminal, dentro de tu proyecto Laravel, ejecuta:
+- Para desarrollo:
+```bash
+  npm run dev
+```
+- Para producción (compilación optimizada):
 ```bash
   npm run build
 ```
-Luego para ejecutar el proyecto ejecutar el siguiente comando:
 
+Para levantar el proyecto dentro de tu terminar ejecuta:
 ```bash
   php artisan serve
 ```
