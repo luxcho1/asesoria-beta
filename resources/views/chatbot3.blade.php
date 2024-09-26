@@ -1,25 +1,20 @@
 @extends('layouts.app')
 @section('content')
-<div class="row">
-    <div class="col"></div>
-    <div class="col-6">
-        <div class="container mt-5">
-            <div class="card">
-                <div class="card-header bg-primary text-white">
-                    Chatbot 1.3
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-dark text-white text-center">
+                    <h3>Chatbot de Asesoría en Leyes Familiares</h3>
                 </div>
-
-
-                {{-- Aqui va la respuesta del chatbot --}}
-                <div class="card-body chat-box" style="max-height: 300px; overflow-y: auto;"> 
-                   @if (isset($userMessage) && isset($botReply))
-                        <p><strong>Usuario:</strong> {{ $userMessage }}</p>
-                        <p><strong>Chatbot:</strong> {{ $botReply }}</p>
+                <div class="card-body chat-box" style="max-height: 300px; overflow-y: auto; background-color: #f8f9fa;">
+                    @if (isset($userMessage) && isset($botReply))
+                        <div class="mb-3">
+                            <p><strong>Usuario:</strong> {{ $userMessage }}</p>
+                            <p><strong>Chatbot:</strong> {{ $botReply }}</p>
+                        </div>
                     @endif
                 </div>
-
-
-                <!-- Formulario para enviar el mensaje -->
                 <div class="card-footer">
                     <form action="{{ route('chatbot3.submit') }}" method="POST" class="d-flex">
                         @csrf
@@ -27,17 +22,12 @@
                         <button type="submit" class="btn btn-primary">Enviar</button>
                     </form>
                 </div>
-                <div class="row" style="padding-top: 30px">
-                    <div class="col"></div>
-                    <div class="col-6" style="text-align: center">
-                        <a class="btn btn-primary" href="{{ url('/') }}" id="regresar" name="regresar">Volver a Inicio</a>
-                    </div>
-                    <div class="col"></div>
-                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a class="btn btn-secondary" href="{{ url('/') }}" id="regresar" name="regresar">Volver a Inicio</a>
             </div>
         </div>
     </div>
-    <div class="col"></div>
 </div>
 @endsection
 

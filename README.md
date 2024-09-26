@@ -41,7 +41,7 @@ Hay dos formas de realizarlo, la primera descargar el zip y pegarlo en la siguie
 
 Y la segunda en esta ruta `C:\laragon\www` abrir el cmd y escribir: 
 ```bash
-  git clone https://github.com/luxcho1/asesor-ia-legal.git
+  git clone https://github.com/luxcho1/asesoria-beta.git
 ```
 
 ## Configurar proyecto y base de datos
@@ -92,12 +92,18 @@ Una vez creada la conexion con la base de datos ejecutamos el siguiente comando:
   php artisan migrate:fresh --seed
 ```
 ## Ejecutar
-Solo la primera vez ejecutar:
+
+Para que los cambios sean visibles, asegúrate de que Vite esté corriendo. En tu terminal, dentro de tu proyecto Laravel, ejecuta:
+- Para desarrollo:
+```bash
+  npm run dev
+```
+- Para producción (compilación optimizada):
 ```bash
   npm run build
 ```
-Luego para ejecutar el proyecto ejecutar el siguiente comando:
 
+Para levantar el proyecto dentro de tu terminar ejecuta:
 ```bash
   php artisan serve
 ```

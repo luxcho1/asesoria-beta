@@ -5,7 +5,7 @@
         <div class="col-md-8">
             <div class="card shadow-lg">
                 <div class="card-header bg-dark text-white text-center">
-                    <h3>Chatbot de Asesoría en Leyes Economicas</h3>
+                    <h3>Chatbot de Asesoría en Leyes Laborales</h3>
                 </div>
                 <div class="card-body chat-box" style="max-height: 300px; overflow-y: auto; background-color: #f8f9fa;">
                     @if (isset($userMessage) && isset($botReply))
@@ -16,7 +16,7 @@
                     @endif
                 </div>
                 <div class="card-footer">
-                    <form action="{{ route('chatbot2.submit') }}" method="POST" class="d-flex">
+                    <form action="{{ route('chatbot.submit') }}" method="POST" class="d-flex">
                         @csrf
                         <input type="text" name="askText" class="form-control me-2" placeholder="Escribe tu mensaje..." required>
                         <button type="submit" class="btn btn-primary">Enviar</button>
