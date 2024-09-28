@@ -66,7 +66,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Chatbot versión 1.6</h5>
                     <p class="card-text">Leyes tributarias</p>
-                    <a class="btn btn-primary" href="{{ url('/chatbot-penal') }}" id="regresar" name="regresar">Ir a chatbot</a>
+                    <a class="btn btn-primary" href="{{ url('/chatbot-tributario') }}" id="regresar" name="regresar">Ir a chatbot</a>
                 </div>
             </div>
         </div>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Chatbot3Controller;
 use App\Http\Controllers\ChatbotLaboralController;
 use App\Http\Controllers\ChatbotPenalController;
 use App\Http\Controllers\ChatbotCivilController;
+use App\Http\Controllers\ChatbotTributarioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,3 +62,10 @@ Route::get('/chatbot-civil', function () {
 });
 
 Route::post('/chatbot-civil', [ChatbotCivilController::class, 'submit'])->name('chatbot_civil.submit');
+
+//version 1.5
+Route::get('/chatbot-tributario', function () {
+    return view('chatbot_tributario');
+});
+
+Route::post('/chatbot-tributario', [ChatbotTributarioController::class, 'submit'])->name('chatbot_tributario.submit');
