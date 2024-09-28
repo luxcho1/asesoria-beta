@@ -5,6 +5,8 @@ use App\Livewire\Chatbot;
 use App\Http\Controllers\ChatbotEconomicoController; 
 use App\Http\Controllers\Chatbot3Controller;
 use App\Http\Controllers\ChatbotLaboralController;
+use App\Http\Controllers\ChatbotPenalController;
+use App\Http\Controllers\ChatbotCivilController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,3 +47,17 @@ Route::get('/chatbot-laboral', function () {
 });
 
 Route::post('/chatbot-laboral', [ChatbotLaboralController::class, 'submit'])->name('chatbot.submit');
+
+//version 1.4
+Route::get('/chatbot-penal', function () {
+    return view('chatbot_penal');
+});
+
+Route::post('/chatbot-penal', [ChatbotPenalController::class, 'submit'])->name('chatbot_penal.submit');
+
+//version 1.5
+Route::get('/chatbot-civil', function () {
+    return view('chatbot_civil');
+});
+
+Route::post('/chatbot-civil', [ChatbotCivilController::class, 'submit'])->name('chatbot_civil.submit');

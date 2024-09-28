@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use OpenAI\Laravel\Facades\OpenAI;
 
-class ChatbotLaboralController extends Controller
+class ChatbotPenalController extends Controller
 {
     public function submit(Request $request)
     {
@@ -20,7 +20,7 @@ class ChatbotLaboralController extends Controller
 
         // Buscar las leyes relevantes en la base de datos en base a la pregunta del usuario
         $keywords = explode(' ', $userMessage);
-        $lawsQuery = DB::table('leyes_laborales');
+        $lawsQuery = DB::table('leyes_penales');
 
         // Buscar entre todas las leyes que contienen al menos una palabra clave de la pregunta del usuario
         foreach ($keywords as $keyword) {
@@ -33,11 +33,11 @@ class ChatbotLaboralController extends Controller
 
         // Definir el rol de la IA
         $messages = [
-            ['role' => 'system', 'content' => 'Eres un asesor jurídico especializado en las leyes laborales de Chile. 
-            Solo puedes responder usando la información contenida en la base de datos de leyes laborales que te proporcionaré. 
+            ['role' => 'system', 'content' => 'Eres un asesor jurídico especializado en las leyes penales de Chile. 
+            Solo puedes responder usando la información contenida en la base de datos de leyes penales que te proporcionaré. 
             Responde a las preguntas como si fueras un abogado profesional. 
             Si no puedes encontrar la información en el archivo, responde con "Lo siento, no tengo esa información en mi base de datos."'],
-            ['role' => 'system', 'content' => 'Este es el contenido de las leyes laborales: ' . substr($txtContent, 0, 15000)], // limitar el archivo con una cierta cantidad de caracteres
+            ['role' => 'system', 'content' => 'Este es el contenido de las leyes penales: ' . substr($txtContent, 0, 20000)], // limitar el archivo con una cierta cantidad de caracteres
             ['role' => 'user', 'content' => $userMessage], // Pregunta del usuario
         ];
 
@@ -53,7 +53,7 @@ class ChatbotLaboralController extends Controller
         $botReply = $response->choices[0]->message->content;
 
         // Devolver la respuesta a la vista
-        return view('chatbot_laboral', [
+        return view('chatbot_penal', [
             'userMessage' => $userMessage,
             'botReply' => $botReply
         ]);

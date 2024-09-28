@@ -52,10 +52,6 @@ class LawSeeder extends Seeder
                 Esta ley fue promulgada por el Congreso Nacional de Chile'
             ],
             [
-                'content' => 'Ley N.º 20.830 - Crea el Acuerdo de Unión Civil: Esta ley introduce un contrato de vida afectiva compartida para parejas no casadas, 
-                otorgándoles derechos y obligaciones similares a las del matrimonio. Esta ley fue promulgada por el Congreso Nacional de Chile'
-            ],
-            [
                 'content' => 'Ley N.º 20.066 - Establece la Ley de Violencia Intrafamiliar: Define la violencia intrafamiliar y regula su prevención, sanción y erradicación. 
                 Garantiza protección a las víctimas y crea mecanismos de denuncia y asistencia. Esta ley fue promulgada por el Congreso Nacional de Chile'
             ],
@@ -108,36 +104,6 @@ class LawSeeder extends Seeder
                 'content' => 'Ley N.º 20.480 - Tipifica el femicidio
                 Establece El delito de femicidio, aumentado las penas para este crimen y reformando la normativa sobre parricidio y violencia intrafamiliar. 
                 Esta ley fue promulgada por el Congreso Nacional de Chile'
-            ],
-            [
-                'content' => 'Ley N.º 21.515 - Establece la mayoría de edad como requisito para el matrimonio
-                Establece la mayoría de edad (18 años) como un requisito indispensable para contraer matrimonio. 
-                El matrimonio de menores de edad es declarado nulo bajo esta ley​. Esta ley fue promulgada por el Congreso Nacional de Chile'
-            ],
-            [
-                'content' => 'Ley N.º 21.400 - Regula el matrimonio entre personas del mismo sexo
-                Establece modificaciones a diversos cuerpos legales para permitir el matrimonio entre personas del mismo sexo, 
-                garantizando igualdad de derechos en relación con el matrimonio y la filiación​. 
-                Esta ley fue promulgada por el Congreso Nacional de Chile'
-            ],
-            [
-                'content' => 'Ley N.º 21.367 - Elimina la causal de conducta homosexual en el divorcio por culpa
-                Establece la supresión de la causal de conducta homosexual como motivo de divorcio por culpa. Esta ley fue promulgada por el Congreso Nacional de Chile'
-            ],
-            [
-                'content' => 'Ley N.º 21.042 - Permiso laboral por Acuerdo de Unión Civil
-                Establece el derecho de los trabajadores que celebren un Acuerdo de Unión Civil a cinco días hábiles de permiso pagado, similar al permiso otorgado por matrimonio​. 
-                Esta ley fue promulgada por el Congreso Nacional de Chile'
-            ],
-            [
-                'content' => 'Ley N.º 20.239 - Compensaciones económicas exentas de impuesto a la renta
-                Establece Las compensaciones económicas acordadas al término del matrimonio estarán exentas del impuesto a la renta. 
-                Esta ley fue promulgada por el Congreso Nacional de Chile'
-            ],
-            [
-                'content' => 'Ley N.º 20.086 - Modificaciones a los procedimientos de los Tribunales de Familia
-                Establece modificaciones a los procedimientos judiciales en los Tribunales de Familia para mejorar la protección de los menores y fortalecer 
-                los procedimientos en casos de violencia intrafamiliar. Esta ley fue promulgada por el Congreso Nacional de Chile'
             ],
             // Añade más leyes aquí
 

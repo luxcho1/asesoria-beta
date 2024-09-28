@@ -10,7 +10,7 @@ class LeyesEconomicasSeeder extends Seeder
 {
     public function run(): void
     {
-        $leyesFamiliares = [
+        $leyesEconomicas = [
             [
                 'descripcion_ley' => 'Ley 20.780: Reforma Tributaria que Modifica el Sistema de Tributación de la Renta.
                 Introduce modificaciones al sistema tributario en Chile, principalmente sobre el Impuesto a la Renta. 
@@ -85,7 +85,7 @@ class LeyesEconomicasSeeder extends Seeder
             // Agregar más leyes económicas aquí
         ];
 
-        foreach ($leyesFamiliares as $leyes) {
+        foreach ($leyesEconomicas as $leyes) {
             DB::table('leyes_economicas')->updateOrInsert(
                 ['descripcion_ley' => $leyes['descripcion_ley']], // Condición para encontrar el registro existente
                 ['descripcion_ley' => $leyes['descripcion_ley']] // Datos a actualizar o insertar
