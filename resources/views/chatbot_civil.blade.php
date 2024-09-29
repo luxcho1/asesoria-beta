@@ -7,13 +7,27 @@
                 <div class="card-header bg-dark text-white text-center">
                     <h3>Chatbot de Asesoría en Leyes civiles</h3>
                 </div>
-                <div class="card-body chat-box" style="max-height: 300px; overflow-y: auto; background-color: #f8f9fa;">
-                    @if (isset($userMessage) && isset($botReply))
-                        <div class="mb-3">
-                            <p><strong>Usuario:</strong> {{ $userMessage }}</p>
-                            <p><strong>Chatbot:</strong> {{ $botReply }}</p>
+                <div id="chat-history" class="card-body chat-box" style="max-height: 300px; overflow-y: auto; background-color: #f8f9fa;">
+                    @guest
+                        <div class="alert alert-warning" role="alert">
+                            {{ __('Please log in to use the chatbot and save your chat history.') }}
                         </div>
-                    @endif
+                    @else
+                        @if (!empty($history))
+                            @foreach ($history as $entry)
+                                <div class="mb-3">
+                                    <p><strong>Usuario:</strong> {{ $entry->user_message }}</p>
+                                    <p><strong>Chatbot:</strong> {{ $entry->bot_reply }}</p>
+                                </div>
+                            @endforeach
+                        @endif
+                        @if (isset($userMessage) && isset($botReply))
+                            <div class="mb-3">
+                                <p><strong>Usuario:</strong> {{ $userMessage }}</p>
+                                <p><strong>Chatbot:</strong> {{ $botReply }}</p>
+                            </div>
+                        @endif
+                    @endguest
                 </div>
                 <div class="card-footer">
                     <form action="{{ route('chatbot_civil.submit') }}" method="POST" class="d-flex">

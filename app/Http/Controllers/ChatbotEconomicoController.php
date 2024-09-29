@@ -17,6 +17,7 @@ class ChatbotEconomicoController extends Controller
 
         // Obtener la pregunta del usuario desde el Request
         $userMessage = $request->input('askText');
+        $userId = $request->user() ? $request->user()->id : null;
 
         // Buscar las leyes relevantes en la base de datos en base a la pregunta del usuario
         $keywords = explode(' ', $userMessage);
@@ -38,8 +39,25 @@ class ChatbotEconomicoController extends Controller
             Responde a las preguntas como si fueras un abogado profesional. 
             Si no puedes encontrar la información en el archivo, responde con "Lo siento, no tengo esa información en mi base de datos."'],
             ['role' => 'system', 'content' => 'Este es el contenido de las leyes económicas: ' . substr($txtContent, 0, 10000)], // limitar el archivo con una cierta cantidad de caracteres
-            ['role' => 'user', 'content' => $userMessage], // Pregunta del usuario
         ];
+
+        // Recuperar el historial de consultas del usuario si está autenticado
+        $history = [];
+        if ($userId) {
+            $history = DB::table('chat_histories_economicas')
+                ->where('user_id', $userId)
+                ->orderBy('created_at', 'asc')
+                ->get(['user_message', 'bot_reply'])
+                ->toArray();
+
+            foreach ($history as $entry) {
+                $messages[] = ['role' => 'user', 'content' => $entry->user_message];
+                $messages[] = ['role' => 'assistant', 'content' => $entry->bot_reply];
+            }
+        }
+
+        // Añadir la nueva pregunta del usuario
+        $messages[] = ['role' => 'user', 'content' => $userMessage];
 
         // Llamada a la API de OpenAI
         $response = OpenAI::chat()->create([
@@ -52,10 +70,22 @@ class ChatbotEconomicoController extends Controller
         // Obtener la respuesta de la IA
         $botReply = $response->choices[0]->message->content;
 
+        // Guardar la conversación en la base de datos
+        if ($userId) {
+            DB::table('chat_histories_economicas')->insert([
+                'user_id' => $userId,
+                'user_message' => $userMessage,
+                'bot_reply' => $botReply,
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+        }
+
         // Devolver la respuesta a la vista
         return view('chatbot2', [
             'userMessage' => $userMessage,
-            'botReply' => $botReply
+            'botReply' => $botReply,
+            'history' => $history
         ]);
     }
 }
